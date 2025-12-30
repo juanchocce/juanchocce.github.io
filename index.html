@@ -1,840 +1,301 @@
-  <!-- =======================================================
-
-██╗░░░██╗███╗░░██╗░█████╗░░█████╗░
-██║░░░██║████╗░██║██╔══██╗██╔══██╗
-██║░░░██║██╔██╗██║███████║██║░░╚═╝
-██║░░░██║██║╚████║██╔══██║██║░░██╗
-╚██████╔╝██║░╚███║██║░░██║╚█████╔╝
-░╚═════╝░╚═╝░░╚══╝╚═╝░░╚═╝░╚════╝░
-
-  ======================================================== -->
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juan Chocce - Portfolio</title>
+  <meta name="description" content="Portfolio of Juan Chocce, Data Analyst and Systems Engineer.">
 
-  <title>Juan Miguel Chocce Puma</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Favicons -->
-  <link href="assets/img/CHOCCE HD T.png" rel="icon">
-  <link href="assets/img/CHOCCE HD T.png" rel="apple-touch-icon">
+  <!-- Icons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- Main Style -->
+  <link rel="stylesheet" href="style.css">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: MyResume - v4.7.0
-  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <!-- Blocking Theme Script -->
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else if (prefersDark) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
 </head>
 
 <body>
 
-  <!-- ======= Mobile nav toggle button ======= -->
-  <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
-  <!-- ======= Header ======= -->
-  <header id="header" class="d-flex flex-column justify-content-center">
+  <!-- Theme Toggle -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+    <i class='bx bx-moon'></i>
+  </button>
 
-    <nav id="navbar" class="navbar nav-menu">
-      <ul>
-        <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-        <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-        <!--<li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>-->
-        <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
-        <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+  <!-- Language Switch -->
+  <div class="lang-switch">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="es">ES</button>
+  </div>
+
+  <!-- Navigation -->
+  <header class="header">
+    <nav class="nav container">
+      <ul class="nav__list">
+        <li><a href="#hero" class="nav__link" data-i18n="nav.home">Home</a></li>
+        <li><a href="#about" class="nav__link" data-i18n="nav.about">About</a></li>
+        <li><a href="#resume" class="nav__link" data-i18n="nav.resume">Resume</a></li>
+        <li><a href="#portfolio" class="nav__link" data-i18n="nav.portfolio">Portfolio</a></li>
+        <!-- <li><a href="#services" class="nav__link" data-i18n="nav.services">Services</a></li> -->
+        <li><a href="#contact" class="nav__link" data-i18n="nav.contact">Contact</a></li>
       </ul>
-    </nav><!-- .nav-menu -->
+    </nav>
+  </header>
 
-  </header><!-- End Header -->
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+      <div class="container hero__container">
+        <h1 class="hero__title" data-i18n="hero.title">Juan Chocce</h1>
+        <p class="hero__subtitle" data-i18n="hero.subtitle">I'm a Data Analyst, Systems Engineer, Business Intelligence
+          Analyst</p>
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center">
-    <div class="container" data-aos="zoom-in" data-aos-delay="100">
-      <h1>Juan Chocce</h1>
-      <p>I'm <span class="typed" data-typed-items="Data Analyst, Systems Engineer, Business Intelligence Analyst"></span></p>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/juanchocce/" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="https://www.linkedin.com/in/juanchocce/" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/juanchocce/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <div class="hero__socials">
+          <a href="https://www.linkedin.com/in/juanchocce/" target="_blank" class="social-link"><i
+              class='bx bxl-linkedin'></i></a>
+          <!-- <a href="#" class="social-link"><i class='bx bxl-github'></i></a> -->
+          <a href="mailto:juan.choccepuma@gmail.com" class="social-link"><i class='bx bx-envelope'></i></a>
+        </div>
       </div>
-    </div>
-  </section><!-- End Hero -->
+    </section>
 
-  <main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>About</h2>
-          <p>
-            
-          </p>
+    <!-- About Section -->
+    <section id="about" class="about section">
+      <h2 class="section__title" data-i18n="about.title">About</h2>
+      <div class="container about__container">
+        <div class="about__img-wrapper">
+          <img src="assets/img/n23.png" alt="Juan Chocce" class="about__img">
         </div>
-
-        <div class="row">
-          <div class="col-lg-4">
-            <img src="assets/img/n23.png" style="border-radius: 25px" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content">
-            <h3>Business Intelligence &amp; Analyst Data Analyst</h3>
-            <!--<p class="fst-italic">
-              "A man who risks nothing for his ideas, either his ideas are worth nothing, or the man is worth nothing." Aristocles of Athens, "Plato".
-            </p>-->
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <!--<li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>2 May</span></li>-->
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.linkedin.com/in/juanchocce</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+51 941564836</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Lima, Per&uacute</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <!--<li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>26</span></li>-->
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelor of Systems Engineering</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>E-mail:</strong> <span>juan.choccepuma@gmail.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-                </ul>
-              </div>
-            </div>
-            <p>
-              Business Intelligence Analyst and Systems Engineer with a strong track record in the Pharmaceutical & Retail sectors.
-              <br>Specialist in Data Storytelling: transforming complex data ecosystems into clear commercial strategies, bridging the gap between technology and business.
-              <br>Expert in process automation (Python) and visualization (Tableau/Power BI), achieving 60% operational efficiencies.
-              <br>Focused on scaling towards Data Science by applying Machine Learning and Web Scraping to empower competitive decision-making.
-              
-            </p>
-          </div>
+        <div class="about__content">
+          <h3 class="about__role" data-i18n="about.role">Business Intelligence & Data Analyst</h3>
+          <p data-i18n="about.desc1">Business Intelligence Analyst and Systems Engineer with a strong track record in
+            the Pharmaceutical & Retail sectors.</p>
+          <p data-i18n="about.desc2">Specialist in Data Storytelling: transforming complex data ecosystems into clear
+            commercial strategies, bridging the gap between technology and business.</p>
+          <p data-i18n="about.desc3">Expert in process automation (Python) and visualization (Tableau/Power BI),
+            achieving 60% operational efficiencies.</p>
+          <p data-i18n="about.desc4">Focused on scaling towards Data Science by applying Machine Learning and Web
+            Scraping to empower competitive decision-making.</p>
         </div>
-
       </div>
-    </section><!-- End About Section -->
+    </section>
 
-    <!-- ======= Facts Section ======= -->
-    <section id="facts" class="facts">
-      <div class="container" data-aos="fade-up">
+    <!-- Facts Section -->
+    <section id="facts" class="facts section">
+      <h2 class="section__title" data-i18n="facts.title">Facts</h2>
+      <div class="container">
+        <p class="section__desc text-center" data-i18n="facts.desc">Throughout my life I have known many tourist places
+          in my country...</p>
 
-        <div class="section-title">
-          <h2>Facts</h2>
-          <p>Throughout my life I have known many tourist places in my country, I have also been able to interact and meet several professionals in my area, besides being able to carry out my personal projects and finally finish my professional career.</p>
+        <div class="facts__grid">
+          <div class="fact-card">
+            <i class='bx bi-emoji-smile'></i>
+            <span>8500+</span>
+            <p data-i18n="facts.followers">Followers</p>
+          </div>
+          <div class="fact-card">
+            <i class='bx bi-journal-richtext'></i>
+            <span>4</span>
+            <p data-i18n="facts.projects">Projects</p>
+          </div>
+          <div class="fact-card">
+            <i class='bx bi-geo-alt'></i>
+            <span>3</span>
+            <p data-i18n="facts.experience">Years of Experience</p>
+          </div>
         </div>
-
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="count-box">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="8000" data-purecounter-duration="1" class="purecounter"></span>
-              <p>linkedin followers</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
-            <div class="count-box">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Projects</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-            <div class="count-box">
-              <i class="bi bi-geo-alt"></i>
-              <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Countries Worked</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-            <div class="count-box">
-              <i class="bi bi-award"></i>
-              <span data-purecounter-start="0" data-purecounter-end="1" data-purecounter-duration="1" class="purecounter"></span>
-              <p>University Degree</p>
-            </div>
-          </div>
-
-        </div>
-
       </div>
-    </section><!-- End Facts Section -->
+    </section>
 
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Skills</h2>
-          <p>These are the skills that I have been able to study and develop throughout my career so far.</p>
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
+      <h2 class="section__title" data-i18n="skills.title">Skills</h2>
+      <div class="container">
+        <div class="skills__grid">
+          <!-- Tech Stack Pills instead of progress bars for modern look -->
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">SQL Server</span>
+          <span class="skill-pill">Tableau</span>
+          <span class="skill-pill">Power BI</span>
+          <span class="skill-pill">MySQL</span>
+          <span class="skill-pill">Excel</span>
+          <span class="skill-pill">Web Scraping</span>
+          <span class="skill-pill">Google Analytics</span>
+          <span class="skill-pill">Looker Studio</span>
+          <span class="skill-pill">Salesforce</span>
+          <span class="skill-pill">SAP</span>
+          <span class="skill-pill">Veritrade</span>
+          <span class="skill-pill">Pitcher</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">Git</span>
+          <span class="skill-pill">C#</span>
+          <span class="skill-pill">Alteryx</span>
         </div>
-
-        <div class="row skills-content">
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill">TABLEAU <i class="val">Avanzado</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Looker <i class="val">Avanzado</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">JavaScript <i class="val">Intermedio</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Git <i class="val">Intermedio</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">C# <i class="val">Intermedio</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Alteryx<i class="val">Intermedio</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill">Python <i class="val">Avanzado</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">SQL Server <i class="val">Avanzado</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">MYSQL<i class="val">Avanzado</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Excel <i class="val">Avanzado</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Power BI <i class="val">Avanzado</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Salesforce <i class="val">Intermedio</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
       </div>
-    </section><!-- End Skills Section -->
+    </section>
 
-
-    
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="resume">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Resume</h2>
-          <p class="fst-italic">"Life can only be understood backwards, but it can only be lived forwards." Sören Kierkegaard.</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6">
-            <h3 class="resume-title">Sumary</h3>
-            <div class="resume-item pb-0">
-              <h4>Juan Chocce</h4>
-              <p><em>University student focused in the area of backend development and data analysis from data collection to data interpretation.</em></p>
-              <ul>
-                <li>Per&uacute, Lima</li>
-                <li>(+51) 941564836</li>
-                <li>juan.choccepuma@gmail.com</li>
-              </ul>
-            </div>
-
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>systems engineer</h4>
-              <h5>2019 - 2023</h5>
-              <p><em>Universidad Nacional del Callao, Callao, PE</em></p>
-              <p>I have acquired a solid analytical background that allows me to interpret and solve problems through the use of systems methodologies and information processing technologies.</p>
-            </div>
-
-             <div class="resume-item">
-              <h4>Learn big data: Data analysis</h4>
-              <h5>2023 - 2023</h5>
-              <p><em>Linkedin Learning, PE</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Learn big data: Data visualization</h4>
-              <h5>2023 - 2023</h5>
-              <p><em>Linkedin Learning, PE</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Data analyst: Advanced reporting tools and techniques</h4>
-              <h5>2023 - 2023</h5>
-              <p><em>Linkedin Learning, PE</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Fundamentals of leadership</h4>
-              <h5>2023 - 2023</h5>
-              <p><em>Linkedin Learning, PE</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Become a Big Data for Business Professional</h4>
-              <h5>2023 - 2023</h5>
-              <p><em>Linkedin Learning, PE</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Web Scraping: Data mining and automation on the web</h4>
-              <h5>2022 - 2022</h5>
-              <p><em>Udemy, PE</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Web Scraping for Python 2022 Workshop</h4>
-              <h5>2022 - 2022</h5>
-              <p><em>Udemy, PE</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Intermediate Excel</h4>
-              <h5>2022 - 2022</h5>
-              <p><em>Romero Foundation, PE</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Introduction to Cyber Security</h4>
-              <h5>2022 - 2022</h5>
-              <p><em>Cisco Networking Academy, PE</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Introduction to IoT</h4>
-              <h5>2022 - 2022</h5>
-              <p><em>Cisco Networking Academy, PE</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Git/GitHub</h4>
-              <h5>2022 - 2022</h5>
-              <p><em>Platzi, PE</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Python</h4>
-              <h5>2022 - 2022</h5>
-              <p><em>Platzi, PE</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Excel</h4>
-              <h5>2022 - 2022</h5>
-              <p><em>Udemy, PE</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>DataBase SQL</h4>
-              <h5>2020 - 2020</h5>
-              <p><em>EdTeam, PE</em></p>
-            </div>
-             <div class="resume-item">
-              <h4>JavaScript</h4>
-              <h5>2020 - 2020</h5>
-              <p><em>EdTeam, PE</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Development of Windows Solutions with C#</h4>
-              <h5>2020 - 2020</h5>
-              <p><em>Universidad Nacional de Ingenier&iacutea, R&iacutemac, PE</em></p>
-            </div>
-                      
+    <!-- Resume Section -->
+    <section id="resume" class="resume section">
+      <h2 class="section__title" data-i18n="resume.title">Resume</h2>
+      <div class="container resume__container">
+        <div class="resume__col">
+          <h3 data-i18n="resume.summary">Summary</h3>
+          <div class="resume__item">
+            <h4>Juan Chocce</h4>
+            <p><em>Data Analyst & Systems Engineer</em></p>
+            <ul>
+              <li>Lima, Peru</li>
+              <li>juan.choccepuma@gmail.com</li>
+            </ul>
           </div>
 
-          
-          <div class="col-lg-6">
-            <h3 class="resume-title">Professional Experience</h3>
-
-            <div class="resume-item">
-              <h4>Business Intelligence Analyst</h4>
-              <h5>October 2022 - Present</h5>
-              <p><em>ALCON Pharmaceutical, San Isidro, PE </em></p>
-              <ul>
-                <li>Data Engineering (Big Data): Designed robust ETL pipelines with Python and SQL, consolidating +50 Million historical records (SAP, Salesforce, SQL) to guarantee a reliable Single Source of Truth.</li>
-                <li>Process Optimization: Restructured market data modeling DDD/PM (IQVIA), optimizing scripts that accelerated Market Share queries by 40%, eliminating critical bottlenecks.</li>
-                <li>Reporting (Sell-In/Sell-Out): Centralized SAP and retail partner data (Inkafarma, Difare) into Tableau dashboards, reducing reporting times and providing full visibility on Quota attainment.</li>
-                <li>Innovation (Web Scraping): Developed algorithms in Python to scrape public medical schedules, crossing this data with sales territories to optimize routes and representative targeting at no additional cost.</li>
-                <li>Competitive Intelligence: Automated import analysis (Veritrade) to monitor competitor stocks and costs, allowing management to anticipate market shortages and adjust strategies proactively.</li>
-                <li>Targeting & Collaboration: Led workgroups with Marketing and Commercial teams to segment zones and clients, maximizing the impact of new product launches through historical data analysis.</li>
-                <li>Stock in Trade (SIT): Implemented early warning models for inventory in distribution channels, proactively preventing stock-outs and overstock in key chains.</li>
-                <li>Sales Operations (Compliance): Orchestrated the Alteryx-Salesforce-Pitcher integration for digital control of Medical Samples, ensuring full traceability and regulatory compliance for the sales force.</li>
-               
-                
-              </ul>
-            </div>
-
-
-            <div class="resume-item">
-              <h4>Pre Professional Practice</h4>
-              <h5>April 2022 - August 2022</h5>
-              <p><em>Universidad Nacional del Callao, Callao, PE </em></p>
-              <ul>
-                <li>Designed relational models in SQL and Power BI dashboards for academic management, facilitating the communication of critical KPIs to the Information Technology Office (OTIC).</li>
-                               
-              </ul>
-            </div>
-
+          <h3 data-i18n="resume.education" >Education</h3>
+          <div class="resume__item">
+            <h4 data-i18n="resume.SI" >Systems Engineer</h4>
+            <h5>2019 - 2023</h5>
+            <p>Universidad Nacional del Callao</p>
           </div>
         </div>
 
-      </div>
-    </section><!-- End Resume Section -->
-
-
-
-
-
-
-    <!--
-    <section id="portfolio" class="portfolio section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
+        <div class="resume__col">
+          <h3 data-i18n="resume.professional_experience" >Professional Experience</h3>
+          <div class="resume__item">
+            <h4>Business Intelligence Analyst</h4>
+            <h5>Oct 2022 - Present</h5>
+            <p>ALCON Pharmaceutical</p>
+            <ul>
+              <li data-i18n="resume.desc1">Data Engineering: ETL pipelines with Python & SQL.</li>
+              <li data-i18n="resume.desc2">Process Optimization: Improved query times by 40%.</li>
+              <li data-i18n="resume.desc3">Reporting: Tableau dashboards for Sales.</li>
+              <li data-i18n="resume.desc4">Innovation: Web Scraping for medical schedules.</li>
             </ul>
           </div>
         </div>
-
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>App</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 2</h4>
-                <p>App</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Card 2</h4>
-                <p>Card</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 2</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 3</h4>
-                <p>App</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Card 1</h4>
-                <p>Card</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Card 3</h4>
-                <p>Card</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
       </div>
     </section>
-   -->
 
-
-
- 
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Services</h2>
-          <p class="fst-italic">Be the change you want to see in the world (Mahatma Gandhi).</p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box iconbox-blue">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
-                </svg>
-                <i class="bx bx-user"></i>
-              </div>
-              <h4><a href="">Programmer</a></h4>
-              <p>Extensive knowledge of today's most demanded programming languages.</p>
+    <!-- Projects Section (Masonry) -->
+    <section id="portfolio" class="portfolio section">
+      <h2 class="section__title" data-i18n="portfolio.title">Portfolio</h2>
+      <div class="container">
+        <div class="projects-grid">
+          <!-- Project placeholders to demonstrate Masonry -->
+          <div class="project-card">
+            <img src="assets/img/projects/covid 1.webp" alt="Project 1">
+            <div class="project-info">
+              <h4>COVID Dashboard Analytics</h4>
+              <p>Power BI / SQL</p>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box iconbox-orange ">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,582.0697525312426C382.5290701553225,586.8405444964366,449.9789794690241,525.3245884688669,502.5850820975895,461.55621195738473C556.606425686781,396.0723002908107,615.8543463187945,314.28637112970534,586.6730223649479,234.56875336149918C558.9533121215079,158.8439757836574,454.9685369536778,164.00468322053177,381.49747125262974,130.76875717737553C312.15926192815925,99.40240125094834,248.97055460311594,18.661163978235184,179.8680185752513,50.54337015887873C110.5421016452524,82.52863877960104,119.82277516462835,180.83849132639028,109.12597500060166,256.43424936330496C100.08760227029461,320.3096726198365,92.17705696193138,384.0621239912766,124.79988738764834,439.7174275375508C164.83382741302287,508.01625554203684,220.96474134820875,577.5009287672846,300,582.0697525312426"></path>
-                </svg>
-                <i class="bx bx-file"></i>
-              </div>
-              <h4><a href="">Data Analyst</a></h4>
-              <p>Extensive knowledge of customer behavior patterns to predict market trends.</p>
+          <div class="project-card">
+            <img src="assets/img/projects/medicos 4.webp" alt="Project 2">
+            <div class="project-info">
+              <h4>Medical Schedule Web Scraper</h4>
+              <p>Python / Tableau / SQL</p>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box iconbox-pink">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,541.5067337569781C382.14930387511276,545.0595476570109,479.8736841581634,548.3450877840088,526.4010558755058,480.5488172755941C571.5218469581645,414.80211281144784,517.5187510058486,332.0715597781072,496.52539010469104,255.14436215662573C477.37192572678356,184.95920475031193,473.57363656557914,105.61284051026155,413.0603344069578,65.22779650032875C343.27470386102294,18.654635553484475,251.2091493199835,5.337323636656869,175.0934190732945,40.62881213300186C97.87086631185822,76.43348514350839,51.98124368387456,156.15599469081315,36.44837278890362,239.84606092416172C21.716077023791087,319.22268207091537,43.775223500013084,401.1760424656574,96.891909868211,461.97329694683043C147.22146801428983,519.5804099606455,223.5754009179313,538.201503339737,300,541.5067337569781"></path>
-                </svg>
-                <i class="bx bx-layer"></i>
-              </div>
-              <h4><a href="">Data Base</a></h4>
-              <p>Extensive knowledge of database managers (SQL-PL/SQL) to support the company's databases.</p>
+          <div class="project-card">
+            <img src="assets/img/projects/proyecto unac 3.webp" alt="Project 3">
+            <div class="project-info">
+              <h4>UNAC Dashboard PBI</h4>
+              <p>Power BI / SQL Server</p>
             </div>
           </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Services Section -->
- 
-
-
-
-
-    <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Testimonials</h2>
-        </div>
-
-        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Rosmery Ventura</h3>
-                <h4>Designer</h4>
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Juan is a professional with skills both to lead teams and to conduct business activities with clients.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/bruno.jpg" class="testimonial-img" alt="">
-                <h3>Bruno Ichpas</h3>
-                <h4>Backend Developer</h4>
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  He has the technical knowledge and experience necessary to detect business pain points and design a Business Intelligence solution, from architecture components to plan building.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>Enzzo Poma</h3>
-                <h4>Entrepreneur</h4>
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  He is a professional oriented to the results of the business, the organization and the clients, and is very generous in sharing his knowledge. He puts special focus on the formation of profiles in the team, taking care of both the labor projection of the members of his team, as well as the human aspects.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-    </section><!-- End Testimonials Section -->
-
-
-
-
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Contact</h2>
-        </div>
-
-        <div class="row mt-1">
-
-          <div class="col-lg-4">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>Lima, Per&uacute;</p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>juan.choccepuma@gmail.com</p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+51 941564836</p>
-              </div>
-
+          <div class="project-card">
+            <img src="assets/img/projects/Rendimiento-Estudiantil-excel.webp" alt="Project 4">
+            <div class="project-info">
+              <h4>UNAC Dashboard Excel</h4>
+              <p>Excel</p>
             </div>
-
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="col-lg-8 mt-5 mt-lg-0">
-
-            <form action="" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+      <h2 class="section__title" data-i18n="contact.title">Contact</h2>
+      <div class="container contact__container">
+        <div class="contact__info">
+          <div class="info-item">
+            <i class='bx bx-map'></i>
+            <h4 data-i18n="contact.location">Location:</h4>
+            <p>Lima, Peru</p>
           </div>
-
+          <div class="info-item">
+            <i class='bx bx-envelope'></i>
+            <h4 data-i18n="contact.email">Email:</h4>
+            <p>juan.choccepuma@gmail.com</p>
+          </div>
         </div>
 
-      </div>
-    </section><!-- End Contact Section -->
+        <form class="contact-form">
+          <!-- Honeypot -->
+          <input type="text" name="bot-field" style="display:none">
 
-  </main><!-- End #main -->
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required class="form-input">
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" required class="form-input">
+          </div>
+          <div class="form-group">
+            <input type="text" name="subject" placeholder="Subject" required class="form-input">
+          </div>
+          <div class="form-group">
+            <textarea name="message" rows="5" placeholder="Message" required class="form-input"></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn--primary" data-i18n="contact.btn">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </section>
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <h3>Juan Chocce</h3>
-      <p class="fst-italic">We have to do the best we are capable of doing. This is our sacred responsibility as humans. -Albert Einstein.</p>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/juanchocce/" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="https://www.linkedin.com/in/juanchocce/" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/juanchocce/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-      </div>
-      <div class="copyright">
-        &copy; Copyright All Rights Reserved
-      </div>
-      <div class="credits">
+  </main>
+
+  <!-- Modal Overlay -->
+  <div id="modal-overlay" class="modal-overlay visually-hidden" aria-hidden="true">
+    <div class="modal-content">
+      <button id="modal-close" class="modal-close">&times;</button>
+      <div class="modal-body">
+        <!-- Carousel injected via JS -->
+        <div class="carousel">
+          <div class="carousel-track">
+            <!-- Images -->
+          </div>
+          <button class="carousel-btn prev">&lt;</button>
+          <button class="carousel-btn next">&gt;</button>
+        </div>
       </div>
     </div>
-  </footer><!-- End Footer -->
+  </div>
 
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <footer class="footer">
+    <div class="container text-center">
+      <p>&copy; 2026 Juan Chocce</p>
+    </div>
+  </footer>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+  <!-- Main JS -->
+  <script type="module" src="main.js"></script>
 </body>
 
 </html>
-
-
-
-
-
-
-
