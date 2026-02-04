@@ -1,6 +1,6 @@
 ---
 
-# 🚀 Professional Portfolio | Juan Miguel Chocce
+# 🚀 Professional Portfolio | Juan Chocce
 
 Bienvenido al repositorio de mi sitio web personal. Este proyecto es una vitrina interactiva que resume mi trayectoria como **Ingeniero de Sistemas** y **Analista de Business Intelligence**, destacando mi enfoque en la transformación de datos complejos en estrategias comerciales claras.
 
@@ -75,3 +75,4 @@ Si deseas explorar el código localmente:
 © 2026 Juan Chocce. Construido con enfoque en datos y pasión por la tecnología.
 
 ---
+
