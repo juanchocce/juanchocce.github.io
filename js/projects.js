@@ -17,9 +17,16 @@ function setupModal() {
     // Open Modal
     cards.forEach(card => {
         card.addEventListener('click', () => {
-            // In a real app, we'd fetch project data here based on an ID
-            // For now, we just open the modal with static carousel
-            openModal(overlay);
+            const projectPrefix = card.dataset.project;
+            let projectImages = [];
+            
+            if (projectPrefix) {
+                projectImages = allImages.filter(img => img.toLowerCase().includes(projectPrefix.toLowerCase()));
+            } else {
+                projectImages = allImages; // Fallback
+            }
+
+            openModal(overlay, projectImages);
         });
     });
 
@@ -44,12 +51,12 @@ function setupModal() {
     initCarousel();
 }
 
-function openModal(overlay) {
+function openModal(overlay, imagesToShow) {
     overlay.classList.remove('visually-hidden');
     document.body.style.overflow = 'hidden'; // Lock Body Scroll
 
-    // Reset Carousel to 0
-    updateCarousel(0);
+    // Load images for this project
+    loadCarouselImages(imagesToShow);
 
     const closeBtn = document.getElementById('modal-close');
     closeBtn.focus();
@@ -62,7 +69,9 @@ function closeModal(overlay) {
 
 /* --- Carousel Logic --- */
 let currentIndex = 0;
-const images = [
+let currentImages = [];
+
+const allImages = [
     'assets/img/projects/covid 1.webp',
     'assets/img/projects/medicos 1.webp',
     'assets/img/projects/medicos 2.webp',
@@ -100,8 +109,20 @@ const images = [
     'assets/img/projects/tinka 8.webp',
     'assets/img/projects/tinka 9.webp',
     'assets/img/projects/tinka 10.webp',  
-
 ];
+
+function loadCarouselImages(images) {
+    currentImages = images;
+    currentIndex = 0;
+
+    const track = document.querySelector('.carousel-track');
+    if (!track) return;
+
+    // Populate Images
+    track.innerHTML = currentImages.map(src => `<img src="${src}" style="min-width: 100%; transition: transform 0.3s ease;">`).join('');
+    
+    updateCarousel(0);
+}
 
 function initCarousel() {
     const track = document.querySelector('.carousel-track');
@@ -110,18 +131,15 @@ function initCarousel() {
 
     if (!track) return;
 
-    // Populate Images
-    track.innerHTML = images.map(src => `<img src="${src}" style="min-width: 100%; transition: transform 0.3s ease;">`).join('');
-
     // Buttons
     prevBtn.addEventListener('click', () => {
         if (currentIndex > 0) currentIndex--;
-        else currentIndex = images.length - 1;
+        else currentIndex = currentImages.length - 1;
         updateCarousel(currentIndex);
     });
 
     nextBtn.addEventListener('click', () => {
-        if (currentIndex < images.length - 1) currentIndex++;
+        if (currentIndex < currentImages.length - 1) currentIndex++;
         else currentIndex = 0;
         updateCarousel(currentIndex);
     });
@@ -140,12 +158,12 @@ function initCarousel() {
         if (Math.abs(diff) > 50) { // Threshold 50px
             if (diff > 0) {
                 // Swipe Left -> Next
-                if (currentIndex < images.length - 1) currentIndex++;
+                if (currentIndex < currentImages.length - 1) currentIndex++;
                 else currentIndex = 0;
             } else {
                 // Swipe Right -> Prev
                 if (currentIndex > 0) currentIndex--;
-                else currentIndex = images.length - 1;
+                else currentIndex = currentImages.length - 1;
             }
             updateCarousel(currentIndex);
         }
