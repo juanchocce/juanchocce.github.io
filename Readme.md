@@ -6,6 +6,8 @@ Bienvenido al repositorio de mi sitio web personal. Este proyecto es una vitrina
 
 ---
 
+<img width="1366" height="768" alt="1" src="https://github.com/juanchocce/juanchocce.github.io/blob/main/cv.png" />
+
 ## 🌟 Características del Proyecto
 
 Este portafolio fue diseñado pensando en la experiencia del usuario y la eficiencia técnica:
@@ -75,4 +77,5 @@ Si deseas explorar el código localmente:
 © 2026 Juan Chocce. Construido con enfoque en datos y pasión por la tecnología.
 
 ---
+
 
